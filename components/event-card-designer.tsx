@@ -214,6 +214,15 @@ export function EventCardDesigner({
     return () => controller.abort();
   }, [event.id]);
 
+  // Escape closes the dialog, matching standard modal behaviour.
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") onClose();
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [onClose]);
+
   const isDirty =
     theme !== initialDesign.theme ||
     stickers.length !== initialDesign.stickers.length ||
@@ -301,7 +310,12 @@ export function EventCardDesigner({
       role="dialog"
       aria-modal="true"
       aria-label="Customize card"
-      onClick={stop}
+      onClick={(e) => {
+        stop(e);
+        // Dismiss only on a true backdrop click, never on clicks inside
+        // the panel (which bubble up to this overlay).
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
       <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-zinc-200 bg-white p-6 shadow-xl sm:p-8">
         <div className="flex items-start justify-between gap-4">

@@ -67,7 +67,7 @@ export function AuthMenu() {
 
   if (user) {
     return (
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
         <Link
           href="/feed"
           className="rounded-full px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-violet-700"
