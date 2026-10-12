@@ -170,7 +170,7 @@ export default function Home() {
               >
                 Built for local communities
               </h2>
-              <p className="mt-5 text-base leading-7 text-paper/70">
+              <p className="mt-5 text-base leading-7 text-paper/70 break-words">
                 A simple, editorial place to share what is happening in the
                 neighborhood — designed to feel like your city&apos;s culture
                 section, not a spreadsheet.
@@ -187,16 +187,16 @@ export default function Home() {
               {principles.map((principle) => (
                 <li
                   key={principle.number}
-                  className="flex gap-6 border-t border-white/15 py-7 first:border-t-0 first:pt-0"
+                  className="flex gap-4 border-t border-white/15 py-7 first:border-t-0 first:pt-0 sm:gap-6"
                 >
-                  <span className="font-display text-lg font-semibold text-clay-soft">
+                  <span className="shrink-0 font-display text-lg font-semibold text-clay-soft">
                     {principle.number}
                   </span>
-                  <div>
-                    <h3 className="font-display text-xl font-semibold tracking-tight text-paper">
+                  <div className="min-w-0">
+                    <h3 className="font-display text-xl font-semibold tracking-tight text-paper break-words">
                       {principle.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-paper/70">
+                    <p className="mt-2 text-sm leading-6 text-paper/70 break-words">
                       {principle.description}
                     </p>
                   </div>
