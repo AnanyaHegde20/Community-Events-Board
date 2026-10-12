@@ -185,30 +185,27 @@ export function EventsBrowser() {
       aria-labelledby="upcoming-heading"
       className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
     >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="flex flex-col gap-4 border-b border-ink/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
+          <p className="eyebrow text-clay">The full calendar</p>
           <h2
             id="upcoming-heading"
-            className="text-3xl font-semibold tracking-tight text-zinc-900"
+            className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
           >
             Upcoming events
           </h2>
-          <p className="mt-2 max-w-xl text-base leading-7 text-zinc-600">
-            Browse meetups, workshops and gatherings from communities across
-            India.
-          </p>
         </div>
         {data && !hasError && (
-          <span className="inline-flex w-fit items-center rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-500">
+          <span className="inline-flex w-fit items-center rounded-full border border-ink/15 bg-cream px-3.5 py-1.5 text-xs font-semibold tracking-wide text-slate-deep uppercase">
             {data.total === 1 ? "1 event" : `${data.total} events`}
           </span>
         )}
       </div>
 
-      <div className="mt-8 flex flex-col gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center">
-        <label className="relative flex-1">
+      <div className="mt-8 flex flex-col gap-4 rounded-3xl border border-ink/10 bg-cream p-4 sm:p-5">
+        <label className="relative block">
           <span className="sr-only">Search events</span>
-          <span className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-zinc-400">
+          <span className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-slate-soft">
             <SearchIcon />
           </span>
           <input
@@ -216,56 +213,81 @@ export function EventsBrowser() {
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
             placeholder="Search events, cities..."
-            className="h-10 w-full rounded-lg border border-zinc-300 bg-white pr-3 pl-9 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+            className="input h-12 rounded-full pr-4 pl-11 !bg-white"
           />
         </label>
 
-        <label className="sm:w-44">
-          <span className="sr-only">Filter by category</span>
-          <select
-            value={category}
-            onChange={(event) => {
-              setCategory(event.target.value);
-              setPage(1);
-            }}
-            className="h-10 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div
+            role="group"
+            aria-label="Filter by category"
+            className="flex flex-wrap gap-2"
           >
-            <option value="">All categories</option>
+            <button
+              type="button"
+              onClick={() => {
+                setCategory("");
+                setPage(1);
+              }}
+              aria-pressed={category === ""}
+              className={`rounded-full border px-4 py-2 text-xs font-semibold tracking-wide uppercase transition-colors ${
+                category === ""
+                  ? "border-ink bg-ink text-paper"
+                  : "border-ink/15 bg-white text-slate-deep hover:border-clay hover:text-clay"
+              }`}
+            >
+              All
+            </button>
             {EVENT_CATEGORIES.map((value) => (
-              <option key={value} value={value}>
+              <button
+                key={value}
+                type="button"
+                onClick={() => {
+                  setCategory(value);
+                  setPage(1);
+                }}
+                aria-pressed={category === value}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold tracking-wide uppercase transition-colors ${
+                  category === value
+                    ? "border-ink bg-ink text-paper"
+                    : "border-ink/15 bg-white text-slate-deep hover:border-clay hover:text-clay"
+                }`}
+              >
                 {value}
-              </option>
+              </button>
             ))}
-          </select>
-        </label>
+          </div>
 
-        <label className="sm:w-44">
-          <span className="sr-only">Filter by city</span>
-          <select
-            value={city}
-            onChange={(event) => {
-              setCity(event.target.value);
-              setPage(1);
-            }}
-            className="h-10 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
-          >
-            <option value="">All cities</option>
-            {(data?.cities ?? []).map((value) => (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            ))}
-          </select>
-        </label>
+          <div className="flex items-center gap-3">
+            <label className="block">
+              <span className="sr-only">Filter by city</span>
+              <select
+                value={city}
+                onChange={(event) => {
+                  setCity(event.target.value);
+                  setPage(1);
+                }}
+                className="input h-10 w-full rounded-full appearance-none pr-8 !bg-white sm:w-44"
+              >
+                <option value="">All cities</option>
+                {(data?.cities ?? []).map((value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-        <button
-          type="button"
-          onClick={clearFilters}
-          disabled={!hasActiveFilters}
-          className="h-10 rounded-lg border border-zinc-300 px-4 text-sm font-medium text-zinc-700 transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Clear filters
-        </button>
+            <button
+              type="button"
+              onClick={clearFilters}
+              disabled={!hasActiveFilters}
+              className="btn btn-outline !h-10 !px-4 !text-xs"
+            >
+              Clear filters
+            </button>
+          </div>
+        </div>
       </div>
 
       {showSkeletons && (
@@ -280,17 +302,17 @@ export function EventsBrowser() {
       )}
 
       {hasError && (
-        <div className="mt-10 rounded-2xl border border-red-200 bg-red-50 px-6 py-14 text-center">
-          <h3 className="text-base font-semibold text-red-900">
+        <div className="mt-10 rounded-3xl border border-clay/30 bg-clay-soft px-6 py-14 text-center">
+          <h3 className="font-display text-xl font-semibold text-ink">
             Could not load events
           </h3>
-          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-red-700">
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-clay-deep">
             {errorMessage}
           </p>
           <button
             type="button"
             onClick={() => setReloadKey((key) => key + 1)}
-            className="mt-6 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+            className="btn btn-ink mt-6"
           >
             Try again
           </button>
@@ -298,11 +320,11 @@ export function EventsBrowser() {
       )}
 
       {showEmpty && (
-        <div className="mt-10 rounded-2xl border border-dashed border-zinc-300 bg-white px-6 py-14 text-center">
-          <h3 className="text-base font-semibold text-zinc-900">
+        <div className="mt-10 rounded-3xl border border-dashed border-ink/25 bg-white px-6 py-14 text-center">
+          <h3 className="font-display text-xl font-semibold text-ink">
             No events found
           </h3>
-          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-zinc-500">
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-deep/80">
             Try a different search, or clear your filters to see everything
             coming up.
           </p>
@@ -310,7 +332,7 @@ export function EventsBrowser() {
             type="button"
             onClick={clearFilters}
             disabled={!hasActiveFilters}
-            className="mt-6 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+            className="btn btn-outline mt-6"
           >
             Clear filters
           </button>
@@ -331,7 +353,7 @@ export function EventsBrowser() {
           </ul>
 
           <div className="mt-10 flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-zinc-500">
+            <p className="text-sm text-slate-soft">
               Showing {rangeStart}–{rangeEnd} of {data.total} event
               {data.total === 1 ? "" : "s"}
             </p>
@@ -342,19 +364,19 @@ export function EventsBrowser() {
                   type="button"
                   onClick={() => goToPage(Math.max(1, page - 1))}
                   disabled={page <= 1 || isRefreshing}
-                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="btn btn-outline !h-10 !px-4 !text-sm"
                 >
                   <ChevronLeftIcon />
                   Previous
                 </button>
-                <span className="px-2 text-sm text-zinc-600">
+                <span className="px-2 text-sm font-medium text-slate-deep">
                   Page {page} of {data.totalPages}
                 </span>
                 <button
                   type="button"
                   onClick={() => goToPage(Math.min(data.totalPages, page + 1))}
                   disabled={page >= data.totalPages || isRefreshing}
-                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="btn btn-outline !h-10 !px-4 !text-sm"
                 >
                   Next
                   <ChevronRightIcon />

@@ -78,12 +78,13 @@ export default function LoginPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md flex-col justify-center px-4 py-16 sm:px-6 lg:px-8">
-      <div className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm">
+      <div className="rounded-3xl border border-ink/10 bg-white p-8 shadow-sm">
         <div className="text-center">
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
-            Welcome back
+          <p className="eyebrow text-clay">Welcome back</p>
+          <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">
+            Sign in
           </h1>
-          <p className="mt-2 text-sm text-zinc-500">
+          <p className="mt-2 text-sm text-slate-soft">
             Sign in to your Community Events account.
           </p>
         </div>
@@ -104,7 +105,7 @@ export default function LoginPage() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               aria-invalid={fieldError === "email"}
-              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
               placeholder="you@example.com"
             />
           </div>
@@ -124,7 +125,7 @@ export default function LoginPage() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               aria-invalid={fieldError === "password"}
-              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
               placeholder="••••••••"
             />
           </div>
@@ -141,7 +142,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="h-11 w-full rounded-full bg-violet-600 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="h-11 w-full rounded-full bg-clay text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Signing in..." : "Sign in"}
           </button>
@@ -151,7 +152,7 @@ export default function LoginPage() {
           Don&apos;t have an account?{" "}
           <Link
             href="/signup"
-            className="font-medium text-violet-700 hover:text-violet-800"
+            className="font-medium text-clay-deep hover:text-clay-deep"
           >
             Sign up
           </Link>

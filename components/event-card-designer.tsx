@@ -317,13 +317,14 @@ export function EventCardDesigner({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-zinc-200 bg-white p-6 shadow-xl sm:p-8">
+      <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-ink/10 bg-white p-6 shadow-xl sm:p-8">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-lg font-semibold tracking-tight text-zinc-900">
+            <p className="eyebrow text-clay">Card designer</p>
+            <h2 className="mt-2 font-display text-xl font-semibold tracking-tight text-ink">
               Customize card
             </h2>
-            <p className="mt-1 text-sm text-zinc-500">{event.title}</p>
+            <p className="mt-1 text-sm text-slate-soft">{event.title}</p>
           </div>
           <button
             type="button"
@@ -372,8 +373,8 @@ export function EventCardDesigner({
                         aria-pressed={theme === option}
                         className={`h-9 rounded-full border px-4 text-xs font-medium shadow-sm transition-colors ${
                           theme === option
-                            ? "border-violet-500 bg-violet-50 text-violet-700"
-                            : "border-zinc-300 bg-white text-zinc-700 hover:border-violet-300 hover:text-violet-700"
+                            ? "border-clay bg-clay-soft text-clay-deep"
+                            : "border-zinc-300 bg-white text-zinc-700 hover:border-clay/50 hover:text-clay-deep"
                         }`}
                       >
                         {CARD_THEME_LABELS[option]}
@@ -407,8 +408,8 @@ export function EventCardDesigner({
                           aria-pressed={selected}
                           className={`inline-flex h-9 items-center gap-1.5 rounded-full border px-3.5 text-xs font-medium shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
                             selected
-                              ? "border-violet-500 bg-violet-50 text-violet-700"
-                              : "border-zinc-300 bg-white text-zinc-700 hover:border-violet-300 hover:text-violet-700"
+                              ? "border-clay bg-clay-soft text-clay-deep"
+                              : "border-zinc-300 bg-white text-zinc-700 hover:border-clay/50 hover:text-clay-deep"
                           }`}
                         >
                           <StickerIcon sticker={sticker} className="h-4 w-4" />
@@ -452,7 +453,7 @@ export function EventCardDesigner({
                   stop(e);
                   onClose();
                 }}
-                className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700"
+                className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep"
               >
                 Close
               </button>
@@ -464,7 +465,7 @@ export function EventCardDesigner({
                 }}
                 disabled={isSaving || !isDirty}
                 aria-busy={isSaving}
-                className="inline-flex h-10 items-center gap-1.5 rounded-full bg-violet-600 px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex h-10 items-center gap-1.5 rounded-full bg-clay px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSaving ? (
                   <>

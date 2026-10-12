@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import "./globals.css";
@@ -14,20 +14,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Community Events Board",
     template: "%s | Community Events Board",
   },
   description:
-    "Discover local meetups, workshops, volunteer days, and neighborhood gatherings on the Community Events Board.",
+    "Discover local festivals, meetups, workshops, food walks, and neighborhood gatherings on the Community Events Board.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col font-sans">

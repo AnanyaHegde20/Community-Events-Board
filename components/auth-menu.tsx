@@ -60,7 +60,7 @@ export function AuthMenu() {
     return (
       <span
         aria-hidden="true"
-        className="h-8 w-24 animate-pulse rounded-full bg-zinc-200"
+        className="h-8 w-24 animate-pulse rounded-full bg-white/10"
       />
     );
   }
@@ -70,24 +70,24 @@ export function AuthMenu() {
       <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
         <Link
           href="/feed"
-          className="rounded-full px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-violet-700"
+          className="rounded-full px-3 py-2 text-sm font-medium text-paper/75 transition-colors hover:text-paper"
         >
           My Feed
         </Link>
         <Link
           href="/preferences"
-          className="rounded-full px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-violet-700"
+          className="rounded-full px-3 py-2 text-sm font-medium text-paper/75 transition-colors hover:text-paper"
         >
           Preferences
         </Link>
-        <span className="hidden text-sm font-medium text-zinc-700 sm:inline">
+        <span className="hidden text-sm font-medium text-paper sm:inline">
           {user.name}
         </span>
         <button
           type="button"
           onClick={handleSignOut}
           disabled={isSigningOut}
-          className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:border-violet-300 hover:text-violet-700 disabled:opacity-60"
+          className="rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-paper transition-colors hover:border-clay hover:text-clay disabled:opacity-60"
         >
           {isSigningOut ? "Signing out..." : "Sign out"}
         </button>
@@ -99,13 +99,13 @@ export function AuthMenu() {
     <div className="flex items-center gap-2">
       <Link
         href="/login"
-        className="rounded-full px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-violet-700"
+        className="rounded-full px-3 py-2 text-sm font-medium text-paper/75 transition-colors hover:text-paper"
       >
         Sign in
       </Link>
       <Link
         href="/signup"
-        className="rounded-full bg-violet-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-violet-700"
+        className="btn btn-primary !px-4 !py-2 !text-xs"
       >
         Sign up
       </Link>

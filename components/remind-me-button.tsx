@@ -189,7 +189,7 @@ export function RemindMeButton({ eventId }: { eventId: string }) {
         <button
           type="button"
           onClick={handleClick}
-          className="inline-flex h-9 items-center gap-1.5 rounded-full border border-zinc-300 bg-white px-3.5 text-xs font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:outline-none"
+          className="inline-flex h-9 items-center gap-1.5 rounded-full border border-zinc-300 bg-white px-3.5 text-xs font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep focus-visible:ring-2 focus-visible:ring-clay/50 focus-visible:outline-none"
         >
           Try again
         </button>
@@ -211,10 +211,10 @@ export function RemindMeButton({ eventId }: { eventId: string }) {
         disabled={isLoading || isSaving}
         aria-pressed={loadState === "ready" ? enabled : undefined}
         aria-busy={isLoading || isSaving}
-        className={`inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 text-xs font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60 ${
+        className={`inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 text-xs font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-clay/50 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60 ${
           isSaved
-            ? "border border-violet-200 bg-violet-50 text-violet-700 hover:border-violet-300"
-            : "border border-zinc-300 bg-white text-zinc-700 hover:border-violet-300 hover:text-violet-700"
+            ? "border border-clay/30 bg-clay-soft text-clay-deep hover:border-clay/50"
+            : "border border-zinc-300 bg-white text-zinc-700 hover:border-clay/50 hover:text-clay-deep"
         }`}
       >
         {isLoading ? (

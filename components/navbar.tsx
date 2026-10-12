@@ -5,25 +5,25 @@ import { useState } from "react";
 import { AuthMenu } from "@/components/auth-menu";
 
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "#upcoming", label: "Events" },
   { href: "#about", label: "About" },
 ];
 
-function CalendarIcon() {
+function MarkIcon() {
   return (
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={1.75}
       strokeLinecap="round"
       strokeLinejoin="round"
       className="h-5 w-5"
     >
-      <rect x="3" y="4" width="18" height="18" rx="2" />
-      <path d="M16 2v4M8 2v4M3 10h18" />
+      <path d="M4 20c2.5-6 5-9 8-9s5.5 3 8 9" />
+      <path d="M9 8.5c.7-1.8 1.8-3 3-3s2.3 1.2 3 3" />
+      <circle cx="12" cy="4" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   );
 }
@@ -32,18 +32,19 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/85 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 text-paper backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-semibold tracking-tight text-zinc-900"
+          className="group flex items-center gap-2.5"
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-600 text-white shadow-sm">
-            <CalendarIcon />
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-clay transition-colors group-hover:border-clay/60">
+            <MarkIcon />
           </span>
-          <span>
-            Community<span className="text-violet-600">Events</span>
+          <span className="font-display text-lg font-semibold tracking-tight text-paper">
+            Community
+            <span className="text-clay">Events</span>
           </span>
         </Link>
 
@@ -52,15 +53,12 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-zinc-600 transition-colors hover:text-violet-700"
+              className="eyebrow text-paper/70 transition-colors hover:text-paper"
             >
               {link.label}
             </Link>
           ))}
-          <a
-            href="#upcoming"
-            className="rounded-full bg-violet-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-violet-700"
-          >
+          <a href="#upcoming" className="btn btn-primary !px-5 !py-2.5 !text-xs">
             Browse events
           </a>
           <AuthMenu />
@@ -68,7 +66,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-700 transition-colors hover:bg-zinc-50 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-paper transition-colors hover:border-white/40 md:hidden"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-nav"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -96,14 +94,14 @@ export function Navbar() {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-zinc-200 bg-white px-4 pb-4 pt-2 md:hidden"
+          className="border-t border-white/10 bg-ink px-4 pb-5 pt-3 md:hidden"
         >
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-zinc-700 transition-colors hover:bg-violet-50 hover:text-violet-700"
+                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-paper/80 transition-colors hover:bg-white/5 hover:text-paper"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
@@ -113,13 +111,13 @@ export function Navbar() {
             <li>
               <a
                 href="#upcoming"
-                className="mt-1 block rounded-lg bg-violet-600 px-3 py-2.5 text-center text-base font-medium text-white transition-colors hover:bg-violet-700"
+                className="btn btn-primary mt-2 w-full"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Browse events
               </a>
             </li>
-            <li className="border-t border-zinc-100 pt-3">
+            <li className="mt-3 border-t border-white/10 pt-4">
               <AuthMenu />
             </li>
           </ul>

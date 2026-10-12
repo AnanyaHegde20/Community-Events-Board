@@ -309,12 +309,13 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 border-b border-ink/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
+          <p className="eyebrow text-clay">Manage the board</p>
+          <h1 className="mt-2 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
             Admin dashboard
           </h1>
-          <p className="mt-1 text-sm text-zinc-500">
+          <p className="mt-1 text-sm text-slate-soft">
             Signed in as <span className="font-medium">{adminEmail}</span>
           </p>
         </div>
@@ -322,7 +323,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
           <button
             type="button"
             onClick={() => setFormMode({ kind: "create" })}
-            className="h-10 rounded-full bg-violet-600 px-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+            className="h-10 rounded-full bg-clay px-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep"
           >
             Add event
           </button>
@@ -330,7 +331,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
             type="button"
             onClick={handleLogout}
             disabled={isLoggingOut}
-            className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:opacity-60"
+            className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep disabled:opacity-60"
           >
             {isLoggingOut ? "Signing out..." : "Sign out"}
           </button>
@@ -394,7 +395,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
             placeholder="Search title, description, city..."
-            className="h-10 w-full rounded-lg border border-zinc-300 bg-white pr-3 pl-9 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+            className="h-10 w-full rounded-lg border border-zinc-300 bg-white pr-3 pl-9 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
           />
         </label>
 
@@ -406,7 +407,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
               setCategory(event.target.value);
               setPage(1);
             }}
-            className="h-10 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+            className="h-10 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
           >
             <option value="">All categories</option>
             {EVENT_CATEGORIES.map((value) => (
@@ -425,7 +426,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
               setStatus(event.target.value);
               setPage(1);
             }}
-            className="h-10 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+            className="h-10 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
           >
             <option value="">All statuses</option>
             <option value="active">Active</option>
@@ -437,7 +438,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
           type="button"
           onClick={clearFilters}
           disabled={!hasActiveFilters}
-          className="h-10 rounded-lg border border-zinc-300 px-4 text-sm font-medium text-zinc-700 transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+          className="h-10 rounded-lg border border-zinc-300 px-4 text-sm font-medium text-zinc-700 transition-colors hover:border-clay/50 hover:text-clay-deep disabled:cursor-not-allowed disabled:opacity-40"
         >
           Clear filters
         </button>
@@ -469,7 +470,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
           <button
             type="button"
             onClick={reload}
-            className="mt-6 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+            className="mt-6 rounded-full bg-clay px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep"
           >
             Try again
           </button>
@@ -490,7 +491,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
             <button
               type="button"
               onClick={clearFilters}
-              className="mt-6 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700"
+              className="mt-6 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep"
             >
               Clear filters
             </button>
@@ -498,7 +499,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
             <button
               type="button"
               onClick={() => setFormMode({ kind: "create" })}
-              className="mt-6 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+              className="mt-6 rounded-full bg-clay px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep"
             >
               Add event
             </button>
@@ -555,7 +556,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className="inline-flex items-center rounded-full bg-violet-50 px-2.5 py-0.5 text-xs font-medium text-violet-700">
+                      <span className="inline-flex items-center rounded-full bg-clay-soft px-2.5 py-0.5 text-xs font-medium text-clay-deep">
                         {event.category}
                       </span>
                     </td>
@@ -584,7 +585,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
                           onClick={() =>
                             setFormMode({ kind: "edit", event })
                           }
-                          className="rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 transition-colors hover:border-violet-300 hover:text-violet-700"
+                          className="rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 transition-colors hover:border-clay/50 hover:text-clay-deep"
                         >
                           Edit
                         </button>
@@ -624,7 +625,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
                   type="button"
                   onClick={() => setPage(Math.max(1, page - 1))}
                   disabled={page <= 1 || isRefreshing}
-                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <ChevronLeftIcon />
                   Previous
@@ -636,7 +637,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
                   type="button"
                   onClick={() => setPage(Math.min(data.totalPages, page + 1))}
                   disabled={page >= data.totalPages || isRefreshing}
-                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   Next
                   <ChevronRightIcon />
@@ -656,8 +657,8 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
             formMode.kind === "edit" ? "Edit event" : "Add event"
           }
         >
-          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-zinc-200 bg-white p-6 shadow-xl sm:p-8">
-            <h2 className="text-lg font-semibold tracking-tight text-zinc-900">
+          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-ink/10 bg-white p-6 shadow-xl sm:p-8">
+            <h2 className="font-display text-xl font-semibold tracking-tight text-ink">
               {formMode.kind === "edit" ? "Edit event" : "Add event"}
             </h2>
             <div className="mt-5">

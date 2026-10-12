@@ -49,10 +49,10 @@ function issuesToFieldErrors(issues: ValidationIssue[]): FieldErrors {
 }
 
 const inputClassName =
-  "mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none";
+  "mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none";
 
 const textareaClassName =
-  "mt-1.5 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none";
+  "mt-1.5 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none";
 
 const labelClassName = "block text-sm font-medium text-zinc-700";
 
@@ -291,7 +291,7 @@ export function EventForm({ initialEvent, onCancel, onSaved }: EventFormProps) {
               type="checkbox"
               checked={isActive}
               onChange={(event) => setIsActive(event.target.checked)}
-              className="h-4 w-4 rounded border-zinc-300 text-violet-600 focus:ring-violet-500"
+              className="h-4 w-4 rounded border-zinc-300 text-clay focus:ring-clay"
               disabled={isSaving}
             />
             <span className="text-sm font-medium text-zinc-700">
@@ -316,14 +316,14 @@ export function EventForm({ initialEvent, onCancel, onSaved }: EventFormProps) {
           type="button"
           onClick={onCancel}
           disabled={isSaving}
-          className="h-11 rounded-full border border-zinc-300 bg-white px-6 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-11 rounded-full border border-zinc-300 bg-white px-6 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={isSaving}
-          className="h-11 rounded-full bg-violet-600 px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-11 rounded-full bg-clay px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSaving
             ? "Saving..."

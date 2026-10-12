@@ -73,12 +73,13 @@ export default function SignupPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md flex-col justify-center px-4 py-16 sm:px-6 lg:px-8">
-      <div className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm">
+      <div className="rounded-3xl border border-ink/10 bg-white p-8 shadow-sm">
         <div className="text-center">
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
-            Create your account
+          <p className="eyebrow text-clay">Join the board</p>
+          <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">
+            Create account
           </h1>
-          <p className="mt-2 text-sm text-zinc-500">
+          <p className="mt-2 text-sm text-slate-soft">
             Join Community Events to save favourites and register for events.
           </p>
         </div>
@@ -99,7 +100,7 @@ export default function SignupPage() {
               value={name}
               onChange={(event) => setName(event.target.value)}
               aria-invalid={errorField === "name"}
-              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
               placeholder="Your name"
             />
           </div>
@@ -119,7 +120,7 @@ export default function SignupPage() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               aria-invalid={errorField === "email"}
-              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
               placeholder="you@example.com"
             />
           </div>
@@ -139,7 +140,7 @@ export default function SignupPage() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               aria-invalid={errorField === "password"}
-              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+              className="mt-1.5 h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-clay focus:ring-2 focus:ring-clay/30 focus:outline-none"
               placeholder="At least 8 characters"
             />
             <p className="mt-1.5 text-xs text-zinc-500">
@@ -159,7 +160,7 @@ export default function SignupPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="h-11 w-full rounded-full bg-violet-600 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="h-11 w-full rounded-full bg-clay text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Creating account..." : "Create account"}
           </button>
@@ -169,7 +170,7 @@ export default function SignupPage() {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="font-medium text-violet-700 hover:text-violet-800"
+            className="font-medium text-clay-deep hover:text-clay-deep"
           >
             Sign in
           </Link>

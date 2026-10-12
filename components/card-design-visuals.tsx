@@ -45,81 +45,81 @@ export const CARD_STICKER_LABELS: Record<CardSticker, string> = {
 export function themeCardContainerClass(theme: CardTheme): string {
   switch (theme) {
     case "vibrant":
-      return "border-fuchsia-300 bg-gradient-to-br from-fuchsia-50 via-white to-amber-50";
+      return "border-clay/30 bg-clay-soft";
     case "minimal":
-      return "border-zinc-100 bg-white";
+      return "border-ink/10 bg-paper";
     case "classic":
     default:
-      return "border-zinc-200 bg-white";
+      return "border-ink/10 bg-white";
   }
 }
 
 export function themeCardHoverClass(theme: CardTheme): string {
   switch (theme) {
     case "vibrant":
-      return "hover:border-fuchsia-400";
+      return "hover:border-clay/60";
     case "minimal":
-      return "hover:border-zinc-300";
+      return "hover:border-ink/30";
     case "classic":
     default:
-      return "hover:border-violet-300";
+      return "hover:border-clay/45";
   }
 }
 
 export function themeCardBadgeClass(theme: CardTheme): string {
   switch (theme) {
     case "vibrant":
-      return "bg-fuchsia-600 text-white";
+      return "bg-clay text-paper";
     case "minimal":
-      return "bg-zinc-100 text-zinc-600";
+      return "bg-ink text-paper";
     case "classic":
     default:
-      return "bg-white/95 text-violet-700";
+      return "bg-ink/85 text-paper backdrop-blur";
   }
 }
 
 export function themeCardTitleClass(theme: CardTheme): string {
   switch (theme) {
     case "vibrant":
-      return "text-fuchsia-950";
+      return "text-clay-deep";
     case "minimal":
-      return "text-zinc-800";
+      return "text-ink";
     case "classic":
     default:
-      return "text-zinc-900";
+      return "text-ink";
   }
 }
 
 export function themeCardMetaClass(theme: CardTheme): string {
   switch (theme) {
     case "vibrant":
-      return "text-fuchsia-800/80";
+      return "text-clay-deep/80";
     case "minimal":
-      return "text-zinc-500";
+      return "text-slate-soft";
     case "classic":
     default:
-      return "text-zinc-500";
+      return "text-slate-soft";
   }
 }
 
 export function themeCardFooterClass(theme: CardTheme): string {
   switch (theme) {
     case "vibrant":
-      return "border-fuchsia-100";
+      return "border-clay/20";
     case "minimal":
-      return "border-zinc-50";
+      return "border-ink/10";
     case "classic":
     default:
-      return "border-zinc-100";
+      return "border-ink/10";
   }
 }
 
 const STICKER_FILLS: Record<CardSticker, string> = {
-  star: "text-amber-500",
-  heart: "text-rose-500",
-  music: "text-violet-500",
-  sparkles: "text-sky-500",
-  party: "text-fuchsia-500",
+  star: "text-amber-600",
+  heart: "text-clay",
+  music: "text-slate-deep",
+  sparkles: "text-sage",
+  party: "text-clay-deep",
 };
 
 export function StickerIcon({
@@ -205,7 +205,7 @@ export function StickerIcon({
 
 export function StickerBadges({
   stickers,
-  className = "h-6 w-6",
+  className = "h-5 w-5",
 }: {
   stickers: CardSticker[];
   className?: string;

@@ -26,8 +26,8 @@ function eventDate(daysFromNow: number, hour: number): Date {
   return date;
 }
 
-function eventImage(seedId: string): string {
-  return `https://picsum.photos/seed/${seedId}/800/450`;
+function eventImage(photoId: string): string {
+  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1200&q=75`;
 }
 
 const sampleEvents: SeedEvent[] = [
@@ -40,7 +40,7 @@ const sampleEvents: SeedEvent[] = [
     price: 499,
     description:
       "An evening of live Sufi music by the sea, with chai stalls and a relaxed open-air seating area. Bring a mat and settle in for soulful qawwalis as the sun goes down.",
-    imageUrl: eventImage("sample-01"),
+    imageUrl: eventImage("photo-1470229722913-7c0e2dbbafd3"),
     isActive: true,
   },
   {
@@ -52,7 +52,7 @@ const sampleEvents: SeedEvent[] = [
     price: 299,
     description:
       "A guided evening walk through Old Delhi's famous lanes, tasting parathas, chaat, jalebis and more. The walk covers about 2 kilometres at an easy pace.",
-    imageUrl: eventImage("sample-02"),
+    imageUrl: eventImage("photo-1504674900247-0877df9cc836"),
     isActive: true,
   },
   {
@@ -64,7 +64,7 @@ const sampleEvents: SeedEvent[] = [
     price: 0,
     description:
       "A free full-day workshop for beginners covering component patterns, typing props and state, and building a small project. Bring your own laptop; lunch is provided.",
-    imageUrl: eventImage("sample-03"),
+    imageUrl: eventImage("photo-1516321318423-f06f85e504b3"),
     isActive: true,
   },
   {
@@ -76,7 +76,7 @@ const sampleEvents: SeedEvent[] = [
     price: 150,
     description:
       "Friendly tape-ball cricket for working professionals. Teams are shuffled on the spot, and equipment is shared. Suitable for beginners and casual players.",
-    imageUrl: eventImage("sample-04"),
+    imageUrl: eventImage("photo-1461896836934-ffe607ba8211"),
     isActive: true,
   },
   {
@@ -88,7 +88,7 @@ const sampleEvents: SeedEvent[] = [
     price: 350,
     description:
       "A fun, hands-on clay modelling session for children aged 5 to 10. All materials are provided, and kids take their creations home. Parents are welcome to stay.",
-    imageUrl: eventImage("sample-05"),
+    imageUrl: eventImage("photo-1503454537195-1dcabb73ffb9"),
     isActive: true,
   },
   {
@@ -100,7 +100,7 @@ const sampleEvents: SeedEvent[] = [
     price: 200,
     description:
       "Local singer-songwriters share the stage for acoustic sets. Entry includes one beverage token. Performer slots can be reserved at the venue on the day of the event.",
-    imageUrl: eventImage("sample-06"),
+    imageUrl: eventImage("photo-1459749411175-04bf5292ceea"),
     isActive: false,
   },
   {
@@ -112,7 +112,7 @@ const sampleEvents: SeedEvent[] = [
     price: 0,
     description:
       "Learn to compost kitchen waste at home in a balcony or terrace setup. The session covers bin selection, carbon-nitrogen balance, and troubleshooting bad smells.",
-    imageUrl: eventImage("sample-07"),
+    imageUrl: eventImage("photo-1552664730-d307ca884978"),
     isActive: true,
   },
   {
@@ -124,7 +124,7 @@ const sampleEvents: SeedEvent[] = [
     price: 750,
     description:
       "Cook a full Gujarati thali from scratch: dal, shaak, thepla, kadhi and a sweet. The class is hands-on, small-batch, and includes a printed recipe booklet.",
-    imageUrl: eventImage("sample-08"),
+    imageUrl: eventImage("photo-1414235077428-338989a2e8c0"),
     isActive: true,
   },
   {
@@ -136,7 +136,7 @@ const sampleEvents: SeedEvent[] = [
     price: 400,
     description:
       "A morning walk through the old city's havelis, bazaars and stepwells with a local historian. The route is roughly 3 kilometres and ends with filter coffee.",
-    imageUrl: eventImage("sample-09"),
+    imageUrl: eventImage("photo-1531482615713-2afd69097998"),
     isActive: true,
   },
   {
@@ -148,7 +148,7 @@ const sampleEvents: SeedEvent[] = [
     price: 1200,
     description:
       "A two-hour guided kayaking session through the backwaters, designed for first-timers. Safety briefing, life jackets and a certified instructor are included.",
-    imageUrl: eventImage("sample-10"),
+    imageUrl: eventImage("photo-1517649763962-0c623066013b"),
     isActive: false,
   },
   {
@@ -160,7 +160,7 @@ const sampleEvents: SeedEvent[] = [
     price: 100,
     description:
       "An afternoon of kite flying, snacks and music for families. Kites and thread are included in the entry fee. The venue has open lawns and shaded seating.",
-    imageUrl: eventImage("sample-11"),
+    imageUrl: eventImage("photo-1472162072942-cd5147eb3902"),
     isActive: true,
   },
   {
@@ -172,7 +172,7 @@ const sampleEvents: SeedEvent[] = [
     price: 300,
     description:
       "Learn a short Bollywood routine with a professional choreographer. No experience needed. Wear comfortable clothes; water and parking are available on site.",
-    imageUrl: eventImage("sample-12"),
+    imageUrl: eventImage("photo-1493225457124-a3eb161ffa5f"),
     isActive: true,
   },
   {
@@ -184,7 +184,7 @@ const sampleEvents: SeedEvent[] = [
     price: 899,
     description:
       "An introductory session on indoor climbing walls covering belay basics, footwork and safety checks. Gear rental is included in the price.",
-    imageUrl: eventImage("sample-13"),
+    imageUrl: eventImage("photo-1571019613454-1cb2f99b2d8b"),
     isActive: true,
   },
   {
@@ -196,7 +196,7 @@ const sampleEvents: SeedEvent[] = [
     price: 999,
     description:
       "A coastal cooking session covering Goan fish curry, rice and a simple sol kadhi. Ingredients are sourced from the local market that morning.",
-    imageUrl: eventImage("sample-14"),
+    imageUrl: eventImage("photo-1555939594-58d7cb561ad1"),
     isActive: true,
   },
   {
@@ -208,7 +208,7 @@ const sampleEvents: SeedEvent[] = [
     price: 250,
     description:
       "An interactive storytelling hour for children aged 3 to 7, with puppets and craft activities. Each child receives a storybook to take home.",
-    imageUrl: eventImage("sample-15"),
+    imageUrl: eventImage("photo-1596464716127-f2a82984de30"),
     isActive: true,
   },
 ];

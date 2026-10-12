@@ -139,16 +139,17 @@ export function PreferencesManager() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+        <p className="eyebrow text-clay">Personalise your board</p>
+        <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
           Your favourite categories
         </h1>
-        <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-zinc-600">
+        <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-slate-deep/80">
           Pick the kinds of events you enjoy. We use these to personalise{" "}
           <Link
             href="/feed"
-            className="font-medium text-violet-700 hover:text-violet-800"
+            className="font-medium text-clay hover:text-clay-deep"
           >
             My Feed
           </Link>
@@ -181,7 +182,7 @@ export function PreferencesManager() {
           <button
             type="button"
             onClick={retryLoad}
-            className="mt-6 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+            className="mt-6 rounded-full bg-clay px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep"
           >
             Try again
           </button>
@@ -201,8 +202,8 @@ export function PreferencesManager() {
                     onClick={() => toggleCategory(category)}
                     className={`flex w-full items-center justify-between rounded-2xl border p-5 text-left shadow-sm transition-colors ${
                       isSelected
-                        ? "border-violet-500 bg-violet-50"
-                        : "border-zinc-200 bg-white hover:border-violet-300"
+                        ? "border-clay bg-clay-soft"
+                        : "border-zinc-200 bg-white hover:border-clay/50"
                     }`}
                   >
                     <span className="text-base font-semibold text-zinc-900">
@@ -212,7 +213,7 @@ export function PreferencesManager() {
                       aria-hidden="true"
                       className={`flex h-6 w-6 items-center justify-center rounded-full ${
                         isSelected
-                          ? "bg-violet-600 text-white"
+                          ? "bg-clay text-white"
                           : "border border-zinc-300 text-transparent"
                       }`}
                     >
@@ -252,7 +253,7 @@ export function PreferencesManager() {
             <div className="flex items-center gap-3">
               <Link
                 href="/feed"
-                className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700"
+                className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep"
               >
                 View my feed
               </Link>
@@ -260,7 +261,7 @@ export function PreferencesManager() {
                 type="button"
                 onClick={handleSave}
                 disabled={saveState === "saving" || !hasChanges}
-                className="h-10 rounded-full bg-violet-600 px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="h-10 rounded-full bg-clay px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {saveState === "saving" ? "Saving..." : "Save preferences"}
               </button>

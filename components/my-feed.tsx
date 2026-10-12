@@ -138,19 +138,20 @@ export function MyFeed() {
   const rangeEnd = data ? Math.min(data.page * data.limit, data.total) : 0;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="flex flex-col gap-4 border-b border-ink/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <p className="eyebrow text-clay">Just for you</p>
+          <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             My Feed
           </h1>
-          <p className="mt-2 max-w-xl text-base leading-7 text-zinc-600">
+          <p className="mt-2 max-w-xl text-base leading-7 text-slate-deep/80">
             Upcoming events from the categories you love, sorted by the nearest
             date first.
           </p>
         </div>
         {data && !hasError && (
-          <span className="inline-flex w-fit items-center rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-500">
+          <span className="inline-flex w-fit items-center rounded-full border border-ink/15 bg-cream px-3.5 py-1.5 text-xs font-semibold tracking-wide text-slate-deep uppercase">
             {data.total === 1 ? "1 event" : `${data.total} events`}
           </span>
         )}
@@ -178,7 +179,7 @@ export function MyFeed() {
           <button
             type="button"
             onClick={() => setReloadKey((key) => key + 1)}
-            className="mt-6 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+            className="mt-6 rounded-full bg-clay px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep"
           >
             Try again
           </button>
@@ -198,13 +199,13 @@ export function MyFeed() {
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/preferences"
-              className="rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-violet-700"
+              className="rounded-full bg-clay px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep"
             >
               Update preferences
             </Link>
             <Link
               href="/#upcoming"
-              className="rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700"
+              className="rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep"
             >
               Browse all events
             </Link>
@@ -237,7 +238,7 @@ export function MyFeed() {
                   type="button"
                   onClick={() => setPage(Math.max(1, page - 1))}
                   disabled={page <= 1 || isRefreshing}
-                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <ChevronLeftIcon />
                   Previous
@@ -249,7 +250,7 @@ export function MyFeed() {
                   type="button"
                   onClick={() => setPage(Math.min(data.totalPages, page + 1))}
                   disabled={page >= data.totalPages || isRefreshing}
-                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-violet-300 hover:text-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-10 items-center gap-1 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   Next
                   <ChevronRightIcon />

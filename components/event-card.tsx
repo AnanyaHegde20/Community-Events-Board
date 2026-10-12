@@ -163,9 +163,9 @@ export function EventCard({ event }: { event: EventListItem }) {
 
   return (
     <li
-      className={`flex flex-col overflow-hidden rounded-2xl border shadow-sm transition-colors ${themeCardContainerClass(design.theme)} ${themeCardHoverClass(design.theme)}`}
+      className={`group flex flex-col overflow-hidden rounded-3xl border transition-all duration-300 ${themeCardContainerClass(design.theme)} ${themeCardHoverClass(design.theme)} hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5`}
     >
-      <div className="relative aspect-[16/9] w-full bg-zinc-100">
+      <div className="photo-frame relative aspect-[16/10] w-full overflow-hidden bg-mist">
         <Image
           src={event.imageUrl}
           alt={event.title}
@@ -174,7 +174,7 @@ export function EventCard({ event }: { event: EventListItem }) {
           className="object-cover"
         />
         <span
-          className={`absolute top-3 left-3 rounded-full px-2.5 py-1 text-xs font-medium shadow-sm transition-colors ${themeCardBadgeClass(design.theme)}`}
+          className={`absolute top-3 left-3 rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-widest uppercase transition-colors ${themeCardBadgeClass(design.theme)}`}
         >
           {event.category}
         </span>
@@ -182,37 +182,37 @@ export function EventCard({ event }: { event: EventListItem }) {
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <h3
-          className={`text-base font-semibold transition-colors ${themeCardTitleClass(design.theme)}`}
+        <p
+          className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold tracking-widest uppercase transition-colors ${themeCardMetaClass(design.theme)}`}
         >
-          {event.title}
-        </h3>
-        <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-zinc-500">
-          {event.description}
-        </p>
-
-        <div
-          className={`mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm transition-colors ${themeCardMetaClass(design.theme)}`}
-        >
-          <span className="inline-flex items-center gap-1.5">
-            <PinIcon />
-            {event.city}
-          </span>
           <span className="inline-flex items-center gap-1.5">
             <CalendarIcon />
             {formatEventDateTime(event.dateTime)}
           </span>
-        </div>
+          <span className="inline-flex items-center gap-1.5">
+            <PinIcon />
+            {event.city}
+          </span>
+        </p>
+
+        <h3
+          className={`mt-2 font-display text-xl leading-snug font-semibold tracking-tight transition-colors ${themeCardTitleClass(design.theme)}`}
+        >
+          {event.title}
+        </h3>
+        <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-deep/75">
+          {event.description}
+        </p>
 
         <div
           className={`mt-auto border-t pt-4 transition-colors ${themeCardFooterClass(design.theme)}`}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <span
               className={
                 event.price > 0
-                  ? "text-sm font-semibold text-zinc-900"
-                  : "text-sm font-semibold text-emerald-700"
+                  ? "font-display text-lg font-semibold text-ink"
+                  : "font-display text-lg font-semibold text-sage"
               }
             >
               {formatPrice(event.price)}
@@ -223,7 +223,7 @@ export function EventCard({ event }: { event: EventListItem }) {
           <button
             type="button"
             onClick={handleCustomizeClick}
-            className="mt-3 inline-flex h-9 w-full items-center justify-center gap-1.5 rounded-full border border-dashed border-zinc-300 bg-transparent px-3.5 text-xs font-medium text-zinc-600 transition-colors hover:border-violet-300 hover:text-violet-700 focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:outline-none"
+            className="mt-3 inline-flex h-9 w-full items-center justify-center gap-1.5 rounded-full border border-dashed border-ink/25 bg-transparent px-3.5 text-xs font-medium text-slate-deep transition-colors hover:border-clay hover:text-clay"
           >
             <PaletteIcon />
             Customize card
@@ -248,13 +248,13 @@ export function EventCard({ event }: { event: EventListItem }) {
 
 export function EventCardSkeleton() {
   return (
-    <li className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-      <div className="aspect-[16/9] w-full animate-pulse bg-zinc-200" />
+    <li className="overflow-hidden rounded-3xl border border-ink/10 bg-white">
+      <div className="aspect-[16/10] w-full animate-pulse bg-mist" />
       <div className="space-y-3 p-5">
-        <div className="h-4 w-3/4 animate-pulse rounded bg-zinc-200" />
-        <div className="h-3.5 w-1/2 animate-pulse rounded bg-zinc-100" />
-        <div className="h-3.5 w-2/3 animate-pulse rounded bg-zinc-100" />
-        <div className="h-4 w-1/3 animate-pulse rounded bg-zinc-100" />
+        <div className="h-3 w-1/2 animate-pulse rounded bg-mist" />
+        <div className="h-5 w-3/4 animate-pulse rounded bg-mist" />
+        <div className="h-3.5 w-2/3 animate-pulse rounded bg-mist" />
+        <div className="h-4 w-1/3 animate-pulse rounded bg-mist" />
       </div>
     </li>
   );
