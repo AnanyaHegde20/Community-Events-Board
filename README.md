@@ -103,6 +103,26 @@ credentials you configured.
 
 Production build: `npm run build && npm start`. Lint with `npm run lint`.
 
+## Demo Admin Login
+
+There is deliberately **no published demo password** in this README. The single
+admin account is configured entirely through environment variables in your
+local `.env.local`, which is gitignored and never committed.
+
+To configure the admin account for evaluation:
+
+1. Pick the admin email in `.env.local`:
+   `ADMIN_EMAIL=admin@example.com` (or your preferred address).
+2. Generate a bcrypt hash of your own password (step 3 above):
+   ```bash
+   npm run hash:password -- "choose-a-strong-password"
+   ```
+3. Copy the escaped hash it prints into `ADMIN_PASSWORD_HASH` in `.env.local`.
+4. Restart `npm run dev` and sign in at `/admin/login`.
+
+The plaintext password is never stored, logged, or committed; only the bcrypt
+hash lives in your local environment file.
+
 ## Pages
 
 | Path | Access | Purpose |
@@ -180,6 +200,34 @@ pagination. User input is regex-escaped to prevent ReDoS-style injection.
 - Unique compound indexes plus atomic upserts make reminder and design
   saves idempotent under concurrent requests.
 - Deactivating an event sets `isActive: false`; the record is preserved.
+
+## Technical Questions
+
+**1. How is the database structured?**
+Four collections: `users` (unique email, bcrypt hash, favouriteCategories),
+`events` (title, category, city, dateTime, price, description, imageUrl,
+isActive, seedId), plus `reminders` and `carddesigns` each holding
+userId + eventId under a unique compound index. Per-user data lives in its own
+collections keyed by userId — never on the event document — so users cannot
+see or overwrite each other's reminders/designs, and atomic upserts keep saves
+idempotent under concurrent clicks.
+
+**2. How do filtering, sorting, pagination, and indexes work?**
+Every public query is anchored on `isActive: true` and `dateTime > now`, then
+narrowed by optional exact `category` and escaped case-insensitive regexes on
+`city` and on title/description/city for text search — all combined with `$and`
+so the filters compose. Results sort by `dateTime` ascending with `_id` as a
+tiebreaker for stable pages; `page`/`limit` paginate (limit capped at 24).
+Indexes: compound `{isActive, dateTime}` for the main listing, plus
+single-field `category`, `city`, and `dateTime`.
+
+**3. How are passwords and admin routes secured?**
+Passwords are bcrypt-hashed; plaintext is never stored or returned. Sessions
+are stateless HS256 JWTs (jose) in `HttpOnly`, `SameSite=Lax` cookies — 7-day
+user lifetime, 8-hour admin lifetime. Every admin API calls `requireAdmin`,
+which verifies the admin JWT's role claim server-side and returns 401/403; the
+admin identity is never read from the request body, and the dashboard page
+re-checks the cookie on the server before rendering.
 
 ## Known limitations
 
