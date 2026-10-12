@@ -48,7 +48,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -66,7 +66,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-paper transition-colors hover:border-white/40 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-paper transition-colors hover:border-white/40 lg:hidden"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-nav"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -94,7 +94,7 @@ export function Navbar() {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-white/10 bg-ink px-4 pb-5 pt-3 md:hidden"
+          className="border-t border-white/10 bg-ink px-4 pb-5 pt-3 lg:hidden"
         >
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (

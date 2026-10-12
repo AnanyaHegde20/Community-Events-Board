@@ -258,8 +258,8 @@ export function EventsBrowser() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
-            <label className="block">
+          <div className="flex flex-wrap items-center gap-3">
+            <label className="block w-full sm:w-auto">
               <span className="sr-only">Filter by city</span>
               <select
                 value={city}

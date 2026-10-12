@@ -80,7 +80,7 @@ export function AuthMenu() {
         >
           Preferences
         </Link>
-        <span className="hidden text-sm font-medium text-paper sm:inline">
+        <span className="hidden text-sm font-medium text-paper lg:inline">
           {user.name}
         </span>
         <button
