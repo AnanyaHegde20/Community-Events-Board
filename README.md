@@ -247,3 +247,10 @@ re-checks the cookie on the server before rendering.
   was exercised over HTTP against a live server and real MongoDB.
 - The seed uses relative dates (`now + N days`); re-run `npm run db:seed`
   if the sample events have aged past their dates.
+
+## AI usage disclosure
+
+This project was developed with AI assistance (OpenCode) across all steps:
+scaffolding, feature implementation, test authoring, and documentation.
+All code was written, reviewed, and verified by the developer with the AI;
+tests were executed against a live local server and MongoDB instance.
