@@ -204,6 +204,7 @@ pagination. User input is regex-escaped to prevent ReDoS-style injection.
 ## Technical Questions
 
 **1. How is the database structured?**
+
 Four collections: `users` (unique email, bcrypt hash, favouriteCategories),
 `events` (title, category, city, dateTime, price, description, imageUrl,
 isActive, seedId), plus `reminders` and `carddesigns` each holding
@@ -213,6 +214,7 @@ see or overwrite each other's reminders/designs, and atomic upserts keep saves
 idempotent under concurrent clicks.
 
 **2. How do filtering, sorting, pagination, and indexes work?**
+
 Every public query is anchored on `isActive: true` and `dateTime > now`, then
 narrowed by optional exact `category` and escaped case-insensitive regexes on
 `city` and on title/description/city for text search — all combined with `$and`
@@ -222,6 +224,7 @@ Indexes: compound `{isActive, dateTime}` for the main listing, plus
 single-field `category`, `city`, and `dateTime`.
 
 **3. How are passwords and admin routes secured?**
+
 Passwords are bcrypt-hashed; plaintext is never stored or returned. Sessions
 are stateless HS256 JWTs (jose) in `HttpOnly`, `SameSite=Lax` cookies — 7-day
 user lifetime, 8-hour admin lifetime. Every admin API calls `requireAdmin`,
