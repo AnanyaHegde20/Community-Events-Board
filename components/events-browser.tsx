@@ -213,7 +213,7 @@ export function EventsBrowser() {
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
             placeholder="Search events, cities..."
-            className="input h-12 rounded-full pr-4 pl-11 !bg-white"
+            className="input h-12 rounded-full !pr-4 !pl-11 !bg-white"
           />
         </label>
 
@@ -267,7 +267,7 @@ export function EventsBrowser() {
                   setCity(event.target.value);
                   setPage(1);
                 }}
-                className="input h-10 w-full rounded-full appearance-none pr-8 !bg-white sm:w-44"
+                className="input h-10 w-full rounded-full appearance-none !pr-8 !bg-white sm:w-44"
               >
                 <option value="">All cities</option>
                 {(data?.cities ?? []).map((value) => (
