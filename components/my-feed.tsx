@@ -139,19 +139,17 @@ export function MyFeed() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="flex flex-col gap-4 border-b border-ink/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="eyebrow text-clay">Just for you</p>
-          <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            My Feed
-          </h1>
-          <p className="mt-2 max-w-xl text-base leading-7 text-slate-deep/80">
-            Upcoming events from the categories you love, sorted by the nearest
-            date first.
-          </p>
-        </div>
+      <div className="border-b border-ink/10 pb-6 text-center">
+        <p className="eyebrow text-clay">Just for you</p>
+        <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          My Feed
+        </h1>
+        <p className="mx-auto mt-2 max-w-xl text-base leading-7 text-slate-deep/80">
+          Upcoming events from the categories you love, sorted by the nearest
+          date first.
+        </p>
         {data && !hasError && (
-          <span className="inline-flex w-fit items-center rounded-full border border-ink/15 bg-cream px-3.5 py-1.5 text-xs font-semibold tracking-wide text-slate-deep uppercase">
+          <span className="mt-4 inline-flex w-fit items-center rounded-full border border-ink/15 bg-cream px-3.5 py-1.5 text-xs font-semibold tracking-wide text-slate-deep uppercase">
             {data.total === 1 ? "1 event" : `${data.total} events`}
           </span>
         )}

@@ -250,10 +250,10 @@ export function PreferencesManager() {
                 : `${selected.length} of ${EVENT_CATEGORIES.length} categories selected.`}
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3 self-center">
               <Link
                 href="/feed"
-                className="h-10 rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep"
+                className="inline-flex h-10 items-center rounded-full border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:border-clay/50 hover:text-clay-deep"
               >
                 View my feed
               </Link>
@@ -261,7 +261,7 @@ export function PreferencesManager() {
                 type="button"
                 onClick={handleSave}
                 disabled={saveState === "saving" || !hasChanges}
-                className="h-10 rounded-full bg-clay px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex h-10 items-center rounded-full bg-clay px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-clay-deep disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {saveState === "saving" ? "Saving..." : "Save preferences"}
               </button>
